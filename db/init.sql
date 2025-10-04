@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS speed_data (
+  id SERIAL PRIMARY KEY,
+  ts TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  speed INTEGER NOT NULL CHECK (speed >= 0)
+);
+CREATE INDEX IF NOT EXISTS idx_speed_data_ts ON speed_data (ts DESC);
